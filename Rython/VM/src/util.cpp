@@ -2,7 +2,7 @@
 
 char* readFiles(const char* path) {
     // create the file object
-    FILE* file = fopen(path, "r");
+    FILE* file= fopen(path, "r");
     if (!file) {
         printf("Could not open file: %s\n", path);
         return NULL;

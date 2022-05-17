@@ -4,7 +4,8 @@
 #include <iostream>
 
 #include "../include/util.hpp"
-
+#include "../include/parser.hpp"
+#include "../include/token.hpp"
 
 int main(int argc, char** argv) {
 
@@ -14,7 +15,8 @@ int main(int argc, char** argv) {
     }
 
     char* source = readFiles(argv[1]);
-    printf("%s\n", source);
+    TokenList tokens;
+    ParserStart(&tokens, source);
     free(source);
 
     return 0;
