@@ -1,22 +1,18 @@
-#include <cstdio>
 #include <cstdlib>
-#include <cstring>
-#include <iostream>
+#include <cstdio>
 
 #include "../include/util.hpp"
-#include "../include/parser.hpp"
-#include "../include/token.hpp"
 
 int main(int argc, char** argv) {
 
     if (argc < 2) {
-        printf("Interactive interpreter is not available yet");
-        return 1;
+        printf("Interactive Interpreter is not available yet.\n");
+        return 3;
     }
 
     char* source = readFiles(argv[1]);
-    TokenList tokens;
-    ParserStart(&tokens, source);
+    printf("%s\n", source);
+
     free(source);
 
     return 0;

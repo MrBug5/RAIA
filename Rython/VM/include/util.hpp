@@ -1,8 +1,8 @@
 #ifndef RYTHON_UTIL_HPP
 #define RYTHON_UTIL_HPP
-#include <cstdio>
 #include <cstdlib>
+#include <cstdio>
 
-char* readFiles(const char* path);
+char* readFiles(char* path);
 
 #endif // RYTHON_UTIL_HPP
