@@ -2,6 +2,8 @@
 #include <cstdio>
 
 #include "../include/util.hpp"
+#include "../include/token.hpp"
+#include "../include/table.hpp"
 
 int main(int argc, char** argv) {
 
@@ -13,6 +15,8 @@ int main(int argc, char** argv) {
     char* source = readFiles(argv[1]);
     printf("%s\n", source);
 
+
+    // free(tokens)
     free(source);
 
     return 0;
