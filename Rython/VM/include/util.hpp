@@ -8,7 +8,7 @@
 #include <sstream>
 #include <type_traits>
 
-enum __xxTPT06__ {
+enum __xxTPT07__ {
     IDENTIFIER = 1,  // x, number, name, age, etc
     KEYWORD,  // print, if, input, return
     SEPARATOR, // }, |,
@@ -18,8 +18,8 @@ enum __xxTPT06__ {
 };
 
 char* readFiles(char* path);
-std::ostream& operator << (std::ostream& os, const __xxTPT06__& obj);
-std::vector<__xxTPT06__> Iden(char* lineBuf);
+std::ostream& operator << (std::ostream& os, const __xxTPT07__& obj);
+std::vector<__xxTPT07__> Iden(char* lineBuf);
 char* intToChar(int a);
 
 #endif // RYTHON_UTIL_HPP

@@ -27,13 +27,13 @@ char* readFiles(char* path) {
     return buf;
 }
 
-std::ostream& operator << (std::ostream& os, const __xxTPT06__& obj) {
-    os << static_cast<std::underlying_type<__xxTPT06__>::type>(obj);
+std::ostream& operator << (std::ostream& os, const __xxTPT07__& obj) {
+    os << static_cast<std::underlying_type<__xxTPT07__>::type>(obj);
     return os;
 }
 
-std::vector<__xxTPT06__> Iden(char* lineBuf) {
-    std::vector<__xxTPT06__> types;
+std::vector<__xxTPT07__> Iden(char* lineBuf) {
+    std::vector<__xxTPT07__> types;
     std::string _StrLiBuf(lineBuf);
     std::vector<std::regex> rgxs;
     std::regex rgx1("\\w+\\s*=\\s*[a-zA-0-9\"']+");
@@ -42,9 +42,9 @@ std::vector<__xxTPT06__> Iden(char* lineBuf) {
         std::smatch m;
         while (std::regex_search(_StrLiBuf, m, rgxs[i])) {
             if (i == 0) {
-                types.push_back(__xxTPT06__::IDENTIFIER);
-                types.push_back(__xxTPT06__::OPERATOR);
-                types.push_back(__xxTPT06__::LITERAL);
+                types.push_back(__xxTPT07__::IDENTIFIER);
+                types.push_back(__xxTPT07__::OPERATOR);
+                types.push_back(__xxTPT07__::LITERAL);
             }
             _StrLiBuf = m.suffix().str();
         }

@@ -4,6 +4,7 @@
 #include "../include/util.hpp"
 #include "../include/token.hpp"
 #include "../include/table.hpp"
+#include "../include/openstack.hpp"
 
 int main(int argc, char** argv) {
 
@@ -16,7 +17,6 @@ int main(int argc, char** argv) {
     printf("%s\n", source);
 
 
-    // free(tokens)
     free(source);
 
     return 0;
