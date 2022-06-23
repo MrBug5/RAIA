@@ -1,6 +1,8 @@
 #ifndef RYTHON_TOKEN_HPP
 #define RYTHON_TOKEN_HPP
 #include <cstring>
+#include <cstdlib>
+#include <cstdio>
 
 typedef struct Token Token;
 typedef struct HashTableItem HashTableItem;
@@ -24,12 +26,19 @@ struct HashTable {
 };
 
 // create the Token, HashTableItem and HashTable
-[[maybe_unused]] int HashFunction(char* type, char* value);
+int HashFunction(char* type, char* value);
 Token* createToken(char* type, char* value);
 HashTableItem* createItem(Token* token);
 HashTable* createTable(int size);
 
 // HashTable algorithms
-void HashTableInsert(HashTable* table, char* value, char* type);
+void HashTableInsert(HashTable* table, char* type, char* value);
+char* HashTableSearch(HashTable* table, char* type);
+void printTable(HashTable* table);
 
+
+// memory management
+void freeToken(Token* token);
+void freeItem(HashTableItem* item);
+void freeTable(HashTable* table);
 #endif // RYTHON_TOKEN_HPP
