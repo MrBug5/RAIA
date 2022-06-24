@@ -3,6 +3,7 @@
 #include <cstring>
 #include <cstdlib>
 #include <cstdio>
+#include <regex>
 
 typedef struct Token Token;
 typedef struct HashTableItem HashTableItem;
@@ -41,4 +42,7 @@ void printTable(HashTable* table);
 void freeToken(Token* token);
 void freeItem(HashTableItem* item);
 void freeTable(HashTable* table);
+
+// Start the lexer
+HashTable* Tokenize(char* lineBuffer);
 #endif // RYTHON_TOKEN_HPP

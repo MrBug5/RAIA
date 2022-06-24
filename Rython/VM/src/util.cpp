@@ -36,7 +36,7 @@ std::vector<__xxTPT07__> Iden(char* lineBuf) {
     std::vector<__xxTPT07__> types;
     std::string _StrLiBuf(lineBuf);
     std::vector<std::regex> rgxs;
-    std::regex rgx1("\\w+\\s*=\\s*[a-zA-0-9\"']+");
+    std::regex rgx1("\\w+[ ]*=[ ]*[a-z|A-Z|0-9|\"|']*");
     rgxs.push_back(rgx1);
     for (int i=0;i<rgxs.size();i++) {
         std::smatch m;

@@ -1,4 +1,5 @@
 #include "../include/token.hpp"
+#include "../include/util.hpp"
 
 int HashFunction(char* type, char* value) {
     char* buffer = new char[strlen(type) + strlen(value) + 1 + 1];
@@ -94,8 +95,34 @@ void printTable(HashTable* table) {
     printf("\n--------------------------------Hash Table--------------------------------\n");
     for (int i=0;i<table->size;i++) {
         if(table->items[i]) {
-            printf("Type: %s\tValue: %s\n", table->items[i]->token->type, table->items[i]->token->value);
+            printf("Type: %s\t\t\tValue: %s\n", table->items[i]->token->type, table->items[i]->token->value);
         }
     }
     printf("--------------------------------------------------------------------------\n");
+}
+
+HashTable* Tokenize(char* lineBuffer) {
+    HashTable* __xLT__ = createTable(50000);
+    std::vector<__xxTPT07__> __VTM__AS__ = {__xxTPT07__::IDENTIFIER, __xxTPT07__::OPERATOR, __xxTPT07__::LITERAL};
+    std::vector<__xxTPT07__> __FRM_BF__ = Iden(lineBuffer);
+    if (__FRM_BF__ == __VTM__AS__) {
+        std::smatch m1;
+        std::smatch m4;
+        std::regex __xxTPT01__("\\w+\\s*(?==)");
+        std::regex __xxTPT04__("=(?=\\s*'|\\w)");
+        std::string __llBB__(lineBuffer);
+        char* identifier;
+        char* Operator;
+        if (std::regex_search(__llBB__, m1, __xxTPT01__)) {
+            std::string __lm(m1.str(0));
+            identifier = (char*) __lm.c_str();
+            HashTableInsert(__xLT__, "identifier", identifier);
+        }
+        if (std::regex_search(__llBB__, m4, __xxTPT04__)) {
+            std::string __ldm(m4.str(0));
+            Operator = (char*) __ldm.c_str();
+            HashTableInsert(__xLT__, "operator", Operator);
+        }
+    }
+    return __xLT__;
 }
