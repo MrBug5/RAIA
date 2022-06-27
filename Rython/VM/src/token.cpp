@@ -110,19 +110,27 @@ HashTable* Tokenize(char* lineBuffer) {
         std::smatch m4;
         std::regex __xxTPT01__("\\w+\\s*(?==)");
         std::regex __xxTPT04__("=(?=\\s*'|\\w)");
+
         std::string __llBB__(lineBuffer);
-        char* identifier;
-        char* Operator;
+        char* IDE;
+        char* OPE;
+        char* LIT;
         if (std::regex_search(__llBB__, m1, __xxTPT01__)) {
             std::string __lm(m1.str(0));
-            identifier = (char*) __lm.c_str();
-            HashTableInsert(__xLT__, "identifier", identifier);
+            IDE = (char*) __lm.c_str();
+            HashTableInsert(__xLT__, "identifier", IDE);
         }
         if (std::regex_search(__llBB__, m4, __xxTPT04__)) {
             std::string __ldm(m4.str(0));
-            Operator = (char*) __ldm.c_str();
-            HashTableInsert(__xLT__, "operator", Operator);
+            OPE = (char*) __ldm.c_str();
+            HashTableInsert(__xLT__, "operator", OPE);
         }
+
+        // TODO: this is not neat. come clean this up later.
+        std::string __STRLIT = __llBB__.substr(__llBB__.find("=") + 1);
+        LIT = (char*)__STRLIT.c_str();
+        if (LIT)
+            HashTableInsert(__xLT__, "literal", LIT);
     }
     return __xLT__;
 }
