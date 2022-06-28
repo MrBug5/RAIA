@@ -103,15 +103,19 @@ void printTable(HashTable* table) {
 
 HashTable* Tokenize(char* lineBuffer) {
     HashTable* __xLT__ = createTable(50000);
+    std::string __llBB__(lineBuffer);
+    std::string __CMT = __llBB__.substr(__llBB__.find("#") + 1);
     std::vector<__xxTPT07__> __VTM__AS__ = {__xxTPT07__::IDENTIFIER, __xxTPT07__::OPERATOR, __xxTPT07__::LITERAL};
+    std::vector<__xxTPT07__> __CMT__ = {__xxTPT07__::COMMENT};
+    // the line buffer
     std::vector<__xxTPT07__> __FRM_BF__ = Iden(lineBuffer);
     if (__FRM_BF__ == __VTM__AS__) {
         std::smatch m1;
         std::smatch m4;
         std::regex __xxTPT01__("\\w+\\s*(?==)");
         std::regex __xxTPT04__("=(?=\\s*'|\\w)");
+        std::regex __print__("");
 
-        std::string __llBB__(lineBuffer);
         char* IDE;
         char* OPE;
         char* LIT;
@@ -125,12 +129,14 @@ HashTable* Tokenize(char* lineBuffer) {
             OPE = (char*) __ldm.c_str();
             HashTableInsert(__xLT__, "operator", OPE);
         }
-
-        // TODO: this is not neat. come clean this up later.
         std::string __STRLIT = __llBB__.substr(__llBB__.find("=") + 1);
         LIT = (char*)__STRLIT.c_str();
         if (LIT)
             HashTableInsert(__xLT__, "literal", LIT);
+    } else if (__FRM_BF__ == __CMT__) {
+        char* COM = (char*)__CMT.c_str();
+        if (COM)
+            HashTableInsert(__xLT__, "comment", COM);
     }
     return __xLT__;
 }

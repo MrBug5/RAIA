@@ -36,8 +36,10 @@ std::vector<__xxTPT07__> Iden(char* lineBuf) {
     std::vector<__xxTPT07__> types;
     std::string _StrLiBuf(lineBuf);
     std::vector<std::regex> rgxs;
-    std::regex rgx1("\\w+[ ]*=[ ]*[a-z|A-Z|0-9|\"|']*");
+    std::regex rgx1("\\w+[ ]*=[ ]*[a-z|A-Z|0-9|\"|']*"); // verbatim assignment
+    std::regex rgx2("#.*"); // comment
     rgxs.push_back(rgx1);
+    rgxs.push_back(rgx2);
     for (int i=0;i<rgxs.size();i++) {
         std::smatch m;
         while (std::regex_search(_StrLiBuf, m, rgxs[i])) {
@@ -45,6 +47,8 @@ std::vector<__xxTPT07__> Iden(char* lineBuf) {
                 types.push_back(__xxTPT07__::IDENTIFIER);
                 types.push_back(__xxTPT07__::OPERATOR);
                 types.push_back(__xxTPT07__::LITERAL);
+            } else if (i == 1) {
+                types.push_back(__xxTPT07__::COMMENT);
             }
             _StrLiBuf = m.suffix().str();
         }

@@ -1,7 +1,9 @@
 #ifndef RYTHON_OPENSTACK_HPP
 #define RYTHON_OPENSTACK_HPP
 #include <cstdlib>
-#include <cstdio>
+#include <iostream>
+#include "../include/table.hpp"
+
 
 struct Stack {
     Stack* head;
@@ -9,8 +11,8 @@ struct Stack {
     Stack* tail;
 };
 
-Stack* createStack(int value);
-void Push(Stack* head, int value);
+Stack* createStack(HashTable* line);
+void Push(Stack* head, Hashtable* line;
 void Pop(Stack* head);
 int getTail(Stack* stack);
 void getStack(Stack* stack);

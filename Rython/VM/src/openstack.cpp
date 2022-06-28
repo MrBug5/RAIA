@@ -24,7 +24,7 @@ int getTail(Stack* stack) { return stack->tail->value; };
 
 void getStack(Stack* stack) {
     if (stack != NULL) {
-        printf("%d\n", stack->value);
         getStack(stack->tail);
     }
+    // TODO: printTable(on the last table on the stack)
 }
