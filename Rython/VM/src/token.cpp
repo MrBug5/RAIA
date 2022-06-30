@@ -114,7 +114,6 @@ HashTable* Tokenize(char* lineBuffer) {
         std::smatch m4;
         std::regex __xxTPT01__("\\w+\\s*(?==)");
         std::regex __xxTPT04__("=(?=\\s*'|\\w)");
-        std::regex __print__("");
 
         char* IDE;
         char* OPE;
@@ -138,5 +137,7 @@ HashTable* Tokenize(char* lineBuffer) {
         if (COM)
             HashTableInsert(__xLT__, "comment", COM);
     }
+
+
     return __xLT__;
 }

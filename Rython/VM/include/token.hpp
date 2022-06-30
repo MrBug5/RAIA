@@ -44,5 +44,5 @@ void freeItem(HashTableItem* item);
 void freeTable(HashTable* table);
 
 // Start the lexer
-HashTable* Tokenize(char* lineBuffer);
+// HashTable* Tokenize(char* lineBuffer);
 #endif // RYTHON_TOKEN_HPP

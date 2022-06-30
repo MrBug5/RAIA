@@ -1,5 +1,7 @@
 #include <cstdlib>
 #include <cstdio>
+#include <vector>
+#include <cstring>
 
 #include "../include/util.hpp"
 #include "../include/token.hpp"
@@ -14,9 +16,21 @@ int main(int argc, char** argv) {
     }
 
     char* source = readFiles(argv[1]);
-    printf("%s\n", source);
+    char buffer[strlen(source) + 1];
+    strcpy(buffer, source)
+    char* temp = strtok(line, "\n");
+    std::vector<char*> lines;
+    while (temp != NULL) {
+        lines.push_back(temp);
+        temp = strtok(NULL, "\n");
+    }
+
+    // tokenize the first line and add it to the stack
+    HashTable* first = Tokenize(lines[0]);
+    Stack* MainStack = createStack(first);
 
 
+    freeStack(MainStack);
     free(source);
 
     return 0;

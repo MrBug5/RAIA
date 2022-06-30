@@ -1,6 +1,6 @@
 #include "../include/openstack.hpp"
 
-Stack* createStack(int value) {
+Stack* createStack(HashTable* value) {
     Stack* stack = (Stack*) malloc(sizeof(stack));
     stack->head = NULL;
     stack->tail = NULL;
@@ -9,7 +9,7 @@ Stack* createStack(int value) {
     return stack;
 }
 
-void Push(Stack* head, int value) {
+void Push(Stack* head, HashTable* value) {
     Stack* temp = createStack(value);
     if (head->tail == NULL) {
         temp->head = head;
@@ -20,11 +20,15 @@ void Push(Stack* head, int value) {
     }
 }
 
-int getTail(Stack* stack) { return stack->tail->value; };
+HashTable* getTail(Stack* stack) { return stack->tail->value; };
 
-void getStack(Stack* stack) {
-    if (stack != NULL) {
-        getStack(stack->tail);
+    void getStack(Stack* stack) {
+        printf("################################################### STACK ###################################################\n");
+        while (stack != NULL) {
+        printTable(stack->value);
+        // getStack(stack->tail);
+        stack = stack->tail;
     }
-    // TODO: printTable(on the last table on the stack)
+    printf("#############################################################################################################\n");
+
 }

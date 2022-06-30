@@ -52,8 +52,13 @@ std::vector<__xxTPT07__> Iden(char* lineBuf) {
             }
             _StrLiBuf = m.suffix().str();
         }
-
     }
+
+    // deal with keywords
+    // linear search seems to be the best, although it has a O(n) runtime complexity
+    // at it's worst case.
+
+    
 
     return types;
 }
