@@ -31,4 +31,16 @@ HashTable* getTail(Stack* stack) { return stack->tail->value; };
     }
     printf("#############################################################################################################\n");
 
+
+}
+
+
+void freeStack(Stack* head) {
+    while (head != NULL) {
+        free(head->head);
+        free(head->value);
+        free(head->tail);
+    }
+
+    free(head);
 }

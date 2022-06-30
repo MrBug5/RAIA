@@ -17,8 +17,8 @@ int main(int argc, char** argv) {
 
     char* source = readFiles(argv[1]);
     char buffer[strlen(source) + 1];
-    strcpy(buffer, source)
-    char* temp = strtok(line, "\n");
+    strcpy(buffer, source);
+    char* temp = strtok(buffer, "\n");
     std::vector<char*> lines;
     while (temp != NULL) {
         lines.push_back(temp);
@@ -29,6 +29,12 @@ int main(int argc, char** argv) {
     HashTable* first = Tokenize(lines[0]);
     Stack* MainStack = createStack(first);
 
+    for(int i=1;i<=lines.size();i++) {
+        HashTable* currentLine = Tokenize(lines[i]);
+        Push(MainStack, currentLine);
+    }
+
+    getStack(MainStack);
 
     freeStack(MainStack);
     free(source);

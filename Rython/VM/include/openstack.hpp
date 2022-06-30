@@ -6,9 +6,9 @@
 
 
 struct Stack {
-    HashTable* head;
+    Stack* head;
     HashTable* value;
-    HashTable* tail;
+    Stack* tail;
 };
 
 Stack* createStack(HashTable* line);
@@ -16,5 +16,6 @@ void Push(Stack* head, HashTable* line);
 void Pop(Stack* head);
 HashTable* getTail(Stack* head);
 void getStack(Stack* head);
+void freeStack(Stack* head);
 
 #endif // RYTHON_OPENSTACK_HPP
